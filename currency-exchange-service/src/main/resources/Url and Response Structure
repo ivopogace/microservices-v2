@@ -1,0 +1,41 @@
+URL
+http://localhost:8000/currency-exchange/from/USD/to/INR
+
+API-GATEWAY
+http://localhost:8765/currency-exchange/currency-exchange/from/USD/to/INR
+http://localhost:8765/currency-conversion/currency-conversion/from/USD/to/INR/quantity/10
+http://localhost:8765/currency-conversion/currency-conversion-feign/from/USD/to/INR/quantity/10
+
+http://localhost:8765/currency-exchange/from/USD/to/INR
+http://localhost:8765/currency-conversion/from/USD/to/INR/quantity/10
+http://localhost:8765/currency-conversion-feign/from/USD/to/INR/quantity/10
+http://localhost:8765/currency-conversion-new/from/USD/to/INR/quantity/10
+
+
+Response Structure
+{
+   "id":10001,
+   "from":"USD",
+   "to":"INR",
+   "conversionMultiple":65.00,
+   "environment":"8000 instance-id"
+}
+
+
+
+CREATE TABLE currency_exchange (
+                               id INT NOT NULL,
+                               currency_from VARCHAR(50) NOT NULL,
+                               currency_to VARCHAR(50) NOT NULL,
+                               conversion_multiple INT NOT NULL,
+                               environment INT
+);
+
+insert INTO currency_exchange (id, currency_from, currency_to, conversion_multiple, environment)
+values (10001, 'USD', 'INR', 65, '');
+
+insert INTO currency_exchange (id, currency_from, currency_to, conversion_multiple, environment)
+values (10002, 'EUR', 'INR', 75, '');
+
+insert INTO currency_exchange (id, currency_from, currency_to, conversion_multiple, environment)
+values (10003, 'AUD', 'INR', 25, '');
